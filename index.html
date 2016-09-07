@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>聚划算</title>
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 <style>
 *{ margin:0; padding:0;}
 li{ list-style:none;}
@@ -16,16 +16,15 @@ input,select{ background:none; outline:none; border:none;}
 
 html{ font-size:20px;}
 
-
 .head{ width:16rem; height:2.5rem; position:relative; background:-webkit-linear-gradient(#fff,#ebebeb);}
 .head .head_out{ width:3rem; height:1.4rem; margin-top:0.575rem; margin-left:0.5rem;}
 .head .head_out img{ width:3rem; height:1.4rem;}
 .head h1{ width:3.65rem; heigth:0.95rem; position:absolute; left:50%; top:50%; margin-left:-1.825rem; margin-top:-0.475rem;}
 .head h1 a,.head h1 a img{ width:100%; heigth:100%; display:block;}
 
-.banner_box,.banner_box ul{ width:16rem; height:7.45rem;}
-.banner_box ul{ width:100%; height:6.675rem;}
-.banner_box ul li{ width:100%; height:100%;} 
+.banner_box{ width:16rem; height:7.45rem; overflow:hidden;}
+.banner_box ul{ width:80rem; height:6.675rem;}
+.banner_box ul li{ width:16rem; height:100%; float:left;} 
 .banner_box ul li a{ width:100%; height:100%; display:block;}
 .banner_box ul li a img{ width:100%; height:100%;}
 .banner_box .banner_btn{ width:100%; height:0.775rem; position:relative;}
@@ -37,6 +36,7 @@ html{ font-size:20px;}
 .nav_box{ width:14.675rem; margin-top:1.025rem; height:7.025rem; padding-left:1.325rem;}
 .nav_box ul{ width:100%; height:3rem;}
 .nav_box ul.first{ margin-bottom:1rem;}
+.nav_box ul li a{ width:2rem; height:100%; display:block;}
 .nav_box ul li{ width:2rem; height:100%; float:left; margin-right:1.8rem;}
 .nav_box ul li span{ width:100%; height:2rem; background:#da3809; border-radius:50%; display:block; position:relative;}
 .nav_box ul li span img{ width:0.8rem; height:0.725rem; position:absolute; left:50%; top:50%; margin-left:-0.4rem; margin-top:-0.3625rem;}
@@ -51,6 +51,7 @@ html{ font-size:20px;}
 .ranking_box .ranking_Divider{ width:100%; height:0.1rem; background:#dcdcdc; margin-top:0.525rem; margin-bottom:0.775rem;}
 .ranking_box .ranking{ width:100%; height:34.5rem;}
 .ranking_box .ranking li{ width:100%; height:3rem; margin-top:0.5rem;}
+.ranking_box .ranking li a{ width:100%; height:100%;}
 .ranking_box .ranking li.first{ margin-top:0;}
 .ranking_box .ranking li span{ width:1.5rem; height:100%; background:#e00202; color:#fff; font-weight:bold; font-size:0.875rem; line-height:3rem; text-align:center;}
 .ranking_box .ranking li img{ width:4.5rem; height:100%;}
@@ -61,32 +62,107 @@ html{ font-size:20px;}
 .ranking_box .ranking li div p.fr i{ color:#d51938; font-weight:bold;}
 .ranking_box .ranking li div p.fr em{ font-size:0.4rem; font-weight:bold;}
 
-.more{ margin:0.5rem 0.5rem; width:15rem; height:2rem; background:#f5f5f5; line-height:2rem; text-align:center; }
-.more a{ font-size:0.625rem; color:#666;}
-
+.more{  display:block; cursor:pointer; margin:0.5rem 0.5rem; width:15rem; height:2rem; background:#f5f5f5; line-height:2rem; text-align:center; font-size:0.625rem; color:#666;}
 
 .main{ margin:0.5rem 0.5rem; width:15.025rem; height:36.05rem;}
 .main .ware{ width:100%; height:8.8rem;}
 .main .ware a,.main .ware a img{ width:3.75rem; height:100%;}
 .main .ware ul{ width:11.225rem; height:8.75rem; border:1px solid #eee; border-right:none; border-bottom:none;}
 .main .ware ul li{ float:left; width:3.69rem; height:2.14rem; border-right:1px solid #eee; border-bottom:1px solid #eee; font-size:0.625rem; text-align:center; line-height:2.15rem;}
-.main .ware ul li a{ color:#999;}
-.main .ware ul li a.hot{ color:#d51942; }
-.main .ware_more{ margin:0.5rem 0; width:15rem; height:2rem; background:#f5f5f5; line-height:2rem; text-align:center; position:relative;}
-.main .ware_more a{ font-size:0.625rem; color:#666;}
-.main .ware_more span{ line-height:0.5rem;; width:0.3rem; height:0.5rem; font-size:0.4rem; font-weight:bold; color:#666; position:absolute; right:0.5rem; top:50%; margin-top:-0.25rem;}
+.main .ware ul li a{ color:#999; width:100%; height:100%; display:block;}
+.main .ware ul li a.hot{ color:#d51942;}
+.main li{ position:relative;}
+.main .ware_more{ cursor:pointer; margin:0.5rem 0; font-size:0.625rem; color:#666; display:block; width:15rem; height:2rem; background:#f5f5f5; line-height:2rem; text-align:center;}
+.main li span{ line-height:0.5rem;; width:0.3rem; height:0.5rem; font-size:0.4rem; font-weight:bold; color:#666; position:absolute; right:0.5rem; top:50%; margin-top:-0.25rem;}
 
-.download{ margin:0.5rem 0.5rem; width:15rem; height:4rem; border:1px solid #dcdcdc;}
+.download{ margin:0.5rem 0.5rem; width:14.95rem; height:3.95rem; border:1px solid #dcdcdc;}
+.download a{ width:4.95rem; height:100%; border-right:1px solid #dcdcdc; float:left; text-align:center;}
+.download a.last{ border:none;}
+.download a i{ width:0.95rem; height:1.1rem; display:block; margin:0.8rem auto;}
+.download a i img{ width:0.95rem; height:1.1rem;}
+.download a span{ font-size:0.575rem; color:#999;}
+.download a span em{ font-style:normal; font-size:0.625rem;}
 
+.loginbar_box{ width:16rem; height:2.2rem; background:#f8f8f8;}
+.loginbar{ line-height:2.2rem; margin-left:0.825rem;}
+.loginbar a{ font-size:0.575rem; color:#333;}
+.loginbar_ranking{ line-height:2.2rem; }
+.loginbar_ranking a{ font-size:0.575rem; color:#333; float:left;}
+.loginbar_ranking i{ float:right; font-style:normal; color:#999; font-size:0.2rem; margin-left:0.5rem; margin-right:0.25rem;}
+
+.footer_box{width:16rem; height:8.575rem; background:#eee;}
+.footer_box .footer_release{ width:10.375rem; height:2.525rem; line-height:2.525rem; padding-left:5.625rem;}
+.footer_box .footer_release a{ font-size:0.575rem; float:left; margin-right:0.7rem; color:#333;}
+.footer_box .footer_message{ width:100%; height:0.5rem; font-size:0.5rem; color:#999; text-align:center;}
+.footer_box .footer_download{ width:13rem; height:4rem; background:rgba(0,0,0,.7); position:relative; margin-left:1.5rem; margin-top:0.65rem; border-radius:10px;}
+.footer_box .footer_download .footer_logo{ width:2.85rem; height:2.85rem; display:block; margin-left:0.55rem; padding-top:0.55rem;}
+.footer_box .footer_download .footer_logo img{ width:2.85rem; height:2.85rem;}
+.footer_box .footer_download .footer_download_txt{ width:6.25rem; height:2.85rem; margin-left:0.55rem; padding-top:0.55rem;}
+.footer_box .footer_download .footer_download_txt p strong{ font-size:0.625rem; color:#fff;}
+.footer_box .footer_download .footer_download_txt span{ font-size:0.625rem; color:#fff;}
+.footer_box .sanjiao{ position:absolute; bottom:-0.425rem; width:0.85rem; transform:rotate(180deg); font-size:0.475rem; color:rgba(0,0,0,.7); height:0.425rem; left:50%; margin-left:-0.452rem;}
 
 
 </style>
 <script>
-
+window.onload = window.onresize = function (){
+	document.documentElement.style.fontSize = document.documentElement.clientWidth*20/320+'px'; 
+	var oBan = document.getElementsByClassName("banner_box")[0],
+		oUl = oBan.getElementsByTagName("ul")[0],
+		oOl = oBan.getElementsByTagName("ol")[0],
+		aLi1 = oUl.children,
+		aLi2 = oOl.children,
+		index = 0,
+		timer = null;
+	/*function tick(){
+		index++;
+		if(index==aLi1.length){
+			index=0;
+		}
+		oUl.style.marginLeft=-index*aLi1[0].offsetWidth+'px';
+		
+	};	
+	timer = setInterval(tick,1000);*/
+	
+	oUl.addEventListener('touchstart',function(ev){
+		clearInterval(timer);
+		var x=0,
+			bOk=0,
+			oTarget = ev.targetTouches[0],
+			disX = oTarget.pageX;
+			
+		alert(1);
+		
+			function fnMove(ev){
+				var oTarget = ev.targetTouches[0];
+				x = oTarget.pageX-disX;
+				if(parseInt(x)>50){
+					bOk = x>0?1:-1;
+				}
+				alert(bOk);
+				
+			}
+			function fnUp(ev){
+				
+				
+			}
+			
+			
+		document.addEventListener('touchmove',fnMove,false);
+		document.addEventListener('touchend',fnUp,false);
+	},false);
+	
+	/*oUl.addEventListener('touchstart',function(ev){
+		timer = setInterval(tick,1000);
+		
+	},false);*/
+	
+	
+};
 </script>
 </head>
 
-<body style="height:3000px;">
+<body>
 	<div class="head clear">
     	<a href="javascript:;" class="head_out fl">
         	<img src="img/head_out.png" />
@@ -98,10 +174,30 @@ html{ font-size:20px;}
         </h1>
  	</div>
     <div class="banner_box">
-    	<ul>
+    	<ul class="clear">
         	<li>
             	<a href="javascript:;">
                 	<img src="img/banner.png" />
+                </a>
+            </li>
+            <li>
+            	<a href="javascript:;">
+                	<img src="img/banner2.jpg" />
+                </a>
+            </li>
+            <li>
+            	<a href="javascript:;">
+                	<img src="img/banner.png" />
+                </a>
+            </li>
+            <li>
+            	<a href="javascript:;">
+                	<img src="img/banner4.jpg" />
+                </a>
+            </li>
+            <li>
+            	<a href="javascript:;">
+                	<img src="img/banner5.jpg" />
                 </a>
             </li>
         </ul>
@@ -118,54 +214,70 @@ html{ font-size:20px;}
     <div class="nav_box">
     	<ul class="clear first">
         	<li>
-            	<span>
-                	<img src="img/1.png"/>
-                </span>
-                <p>商品</p>
+                <a href="javascript:;">
+                    <span>
+                        <img src="img/1.png"/>
+                    </span>
+                    <p>商品</p>
+                </a>
             </li>
         	<li>
-            	<span>
-                	<img src="img/1.png"/>
-                </span>
-                <p>生活</p>
+            	<a href="javascript:;">
+                    <span>
+                        <img src="img/1.png"/>
+                    </span>
+                    <p>生活</p>
+                </a>
             </li>
         	<li>
-            	<span>
-                	<img src="img/1.png"/>
-                </span>
-                <p>品牌</p>
+            	<a href="javascript:;">
+                    <span>
+                        <img src="img/1.png"/>
+                    </span>
+                    <p>品牌</p>
+                </a>
             </li>
         	<li class="last">
-            	<span>
-                	<img src="img/1.png"/>
-                </span>
-                <p>聚宝盆</p>
+                <a href="javascript:;">
+                    <span>
+                        <img src="img/1.png"/>
+                    </span>
+                    <p>聚宝盆</p>
+                </a>
             </li>
         </ul>
     	<ul class="clear">
         	<li>
-            	<span>
-                	<img src="img/1.png"/>
-                </span>
-                <p>聚名品</p>
+            	<a href="javascript:;">
+                    <span>
+                        <img src="img/1.png"/>
+                    </span>
+                    <p>聚名品</p>
+                </a>
             </li>
         	<li>
-            	<span>
-                	<img src="img/1.png"/>
-                </span>
-                <p>聚家装</p>
+            	<a href="javascript:;">
+                    <span>
+                        <img src="img/1.png"/>
+                    </span>
+                    <p>聚家装</p>
+                </a>
             </li>
         	<li>
-            	<span>
-                	<img src="img/1.png"/>
-                </span>
-                <p>聚透</p>
+            	<a href="javascript:;">
+                    <span>
+                        <img src="img/1.png"/>
+                    </span>
+                    <p>聚透</p>
+                </a>
             </li>
         	<li class="last">
-            	<span>
-                	<img src="img/1.png"/>
-                </span>
-                <p>客户端</p>
+            	<a href="javascript:;">
+                    <span>
+                        <img src="img/1.png"/>
+                    </span>
+                    <p>客户端</p>
+                </a>
             </li>
         </ul>
     </div>
@@ -180,150 +292,168 @@ html{ font-size:20px;}
     	<div class="ranking_Divider"></div>
         <ul class="ranking">
         	<li class="first">
-            	<span class="fl">1</span>
-                <img src="img/2.png" class="fl">
-                <div class="fr">
-                	<p class="fl">
-                    	<i>已售 68423</i>
-                        <em>2.3折&nbsp;¥<s>299</s></em>
-                    </p>
-                    <p class="fr">
-                    	<i>¥ 51</i>
-                        <em>〉</em>
-                    </p>
-                </div>
+            	<a href="javascript:;">
+                    <span class="fl">1</span>
+                    <img src="img/2.png" class="fl">
+                    <div class="fr">
+                        <p class="fl">
+                            <i>已售 68423</i>
+                            <em>2.3折&nbsp;¥<s>299</s></em>
+                        </p>
+                        <p class="fr">
+                            <i>¥ 51</i>
+                            <em>〉</em>
+                        </p>
+                    </div>
+                </a>
             </li>
         	<li>
-            	<span class="fl">2</span>
-                <img src="img/2.png" class="fl">
-                <div class="fr">
-                	<p class="fl">
-                    	<i>已售 68423</i>
-                        <em>2.3折&nbsp;¥<s>299</s></em>
-                    </p>
-                    <p class="fr">
-                    	<i>¥ 51</i>
-                        <em>〉</em>
-                    </p>
-                </div>
+            	<a href="javascript:;">
+                    <span class="fl">2</span>
+                    <img src="img/2.png" class="fl">
+                    <div class="fr">
+                        <p class="fl">
+                            <i>已售 68423</i>
+                            <em>2.3折&nbsp;¥<s>299</s></em>
+                        </p>
+                        <p class="fr">
+                            <i>¥ 51</i>
+                            <em>〉</em>
+                        </p>
+                    </div>
+                </a>
             </li>
         	<li>
-            	<span class="fl">3</span>
-                <img src="img/2.png" class="fl">
-                <div class="fr">
-                	<p class="fl">
-                    	<i>已售 68423</i>
-                        <em>2.3折&nbsp;¥<s>299</s></em>
-                    </p>
-                    <p class="fr">
-                    	<i>¥ 51</i>
-                        <em>〉</em>
-                    </p>
-                </div>
+            	<a href="javascript:;">
+                    <span class="fl">3</span>
+                    <img src="img/2.png" class="fl">
+                    <div class="fr">
+                        <p class="fl">
+                            <i>已售 68423</i>
+                            <em>2.3折&nbsp;¥<s>299</s></em>
+                        </p>
+                        <p class="fr">
+                            <i>¥ 51</i>
+                            <em>〉</em>
+                        </p>
+                    </div>
+                </a>
             </li>
         	<li>
-            	<span class="fl">4</span>
-                <img src="img/2.png" class="fl">
-                <div class="fr">
-                	<p class="fl">
-                    	<i>已售 68423</i>
-                        <em>2.3折&nbsp;¥<s>299</s></em>
-                    </p>
-                    <p class="fr">
-                    	<i>¥ 51</i>
-                        <em>〉</em>
-                    </p>
-                </div>
+            	<a href="javascript:;">
+                    <span class="fl">4</span>
+                    <img src="img/2.png" class="fl">
+                    <div class="fr">
+                        <p class="fl">
+                            <i>已售 68423</i>
+                            <em>2.3折&nbsp;¥<s>299</s></em>
+                        </p>
+                        <p class="fr">
+                            <i>¥ 51</i>
+                            <em>〉</em>
+                        </p>
+                    </div>
+                </a>
             </li>
         	<li>
-            	<span class="fl">5</span>
-                <img src="img/2.png" class="fl">
-                <div class="fr">
-                	<p class="fl">
-                    	<i>已售 68423</i>
-                        <em>2.3折&nbsp;¥<s>299</s></em>
-                    </p>
-                    <p class="fr">
-                    	<i>¥ 51</i>
-                        <em>〉</em>
-                    </p>
-                </div>
+            	<a href="javascript:;">
+                    <span class="fl">5</span>
+                    <img src="img/2.png" class="fl">
+                    <div class="fr">
+                        <p class="fl">
+                            <i>已售 68423</i>
+                            <em>2.3折&nbsp;¥<s>299</s></em>
+                        </p>
+                        <p class="fr">
+                            <i>¥ 51</i>
+                            <em>〉</em>
+                        </p>
+                    </div>
+                </a>
             </li>
         	<li>
-            	<span class="fl">6</span>
-                <img src="img/2.png" class="fl">
-                <div class="fr">
-                	<p class="fl">
-                    	<i>已售 68423</i>
-                        <em>2.3折&nbsp;¥<s>299</s></em>
-                    </p>
-                    <p class="fr">
-                    	<i>¥ 51</i>
-                        <em>〉</em>
-                    </p>
-                </div>
+            	<a href="javascript:;">
+                    <span class="fl">6</span>
+                    <img src="img/2.png" class="fl">
+                    <div class="fr">
+                        <p class="fl">
+                            <i>已售 68423</i>
+                            <em>2.3折&nbsp;¥<s>299</s></em>
+                        </p>
+                        <p class="fr">
+                            <i>¥ 51</i>
+                            <em>〉</em>
+                        </p>
+                    </div>
+                </a>
             </li>
         	<li>
-            	<span class="fl">7</span>
-                <img src="img/2.png" class="fl">
-                <div class="fr">
-                	<p class="fl">
-                    	<i>已售 68423</i>
-                        <em>2.3折&nbsp;¥<s>299</s></em>
-                    </p>
-                    <p class="fr">
-                    	<i>¥ 51</i>
-                        <em>〉</em>
-                    </p>
-                </div>
+            	<a href="javascript:;">
+                    <span class="fl">7</span>
+                    <img src="img/2.png" class="fl">
+                    <div class="fr">
+                        <p class="fl">
+                            <i>已售 68423</i>
+                            <em>2.3折&nbsp;¥<s>299</s></em>
+                        </p>
+                        <p class="fr">
+                            <i>¥ 51</i>
+                            <em>〉</em>
+                        </p>
+                    </div>
+                </a>
             </li>
         	<li>
-            	<span class="fl">8</span>
-                <img src="img/2.png" class="fl">
-                <div class="fr">
-                	<p class="fl">
-                    	<i>已售 68423</i>
-                        <em>2.3折&nbsp;¥<s>299</s></em>
-                    </p>
-                    <p class="fr">
-                    	<i>¥ 51</i>
-                        <em>〉</em>
-                    </p>
-                </div>
+            	<a href="javascript:;">
+                    <span class="fl">8</span>
+                    <img src="img/2.png" class="fl">
+                    <div class="fr">
+                        <p class="fl">
+                            <i>已售 68423</i>
+                            <em>2.3折&nbsp;¥<s>299</s></em>
+                        </p>
+                        <p class="fr">
+                            <i>¥ 51</i>
+                            <em>〉</em>
+                        </p>
+                    </div>
+                </a>
             </li>
         	<li>
-            	<span class="fl">9</span>
-                <img src="img/2.png" class="fl">
-                <div class="fr">
-                	<p class="fl">
-                    	<i>已售 68423</i>
-                        <em>2.3折&nbsp;¥<s>299</s></em>
-                    </p>
-                    <p class="fr">
-                    	<i>¥ 51</i>
-                        <em>〉</em>
-                    </p>
-                </div>
+            	<a href="javascript:;">
+                    <span class="fl">9</span>
+                    <img src="img/2.png" class="fl">
+                    <div class="fr">
+                        <p class="fl">
+                            <i>已售 68423</i>
+                            <em>2.3折&nbsp;¥<s>299</s></em>
+                        </p>
+                        <p class="fr">
+                            <i>¥ 51</i>
+                            <em>〉</em>
+                        </p>
+                    </div>
+                </a>
             </li>
         	<li>
-            	<span class="fl">10</span>
-                <img src="img/2.png" class="fl">
-                <div class="fr">
-                	<p class="fl">
-                    	<i>已售 68423</i>
-                        <em>2.3折&nbsp;¥<s>299</s></em>
-                    </p>
-                    <p class="fr">
-                    	<i>¥ 51</i>
-                        <em>〉</em>
-                    </p>
-                </div>
+            	<a href="javascript:;">
+                    <span class="fl">10</span>
+                    <img src="img/2.png" class="fl">
+                    <div class="fr">
+                        <p class="fl">
+                            <i>已售 68423</i>
+                            <em>2.3折&nbsp;¥<s>299</s></em>
+                        </p>
+                        <p class="fr">
+                            <i>¥ 51</i>
+                            <em>〉</em>
+                        </p>
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
-    <div class="more">
-    	<a herf="javascript:;">更多划算&nbsp;逛起来！</a>
-    </div>
+    <a herf="javascript:;" class="more">更多划算&nbsp;逛起来！</a>
     <ul class="main">
     	<li class="ware clear">
         	<a href="javascript:;" class="fl">
@@ -344,8 +474,8 @@ html{ font-size:20px;}
             	<li><a href="javascript:;">更多</a></li>
             </ul>
         </li>
-    	<li class="ware_more">
-        	<a herf="javascript:;">精彩商品&nbsp;逛起来！</a>
+    	<li>
+        	<a herf="javascript:;" class="ware_more">精彩商品&nbsp;逛起来！</a>
             <span>〉</span>
         </li>
     	<li class="ware clear">
@@ -367,8 +497,8 @@ html{ font-size:20px;}
             	<li><a href="javascript:;">更多</a></li>
             </ul>
         </li>
-    	<li class="ware_more">
-        	<a herf="javascript:;">精彩商品&nbsp;逛起来！</a>
+    	<li>
+        	<a herf="javascript:;" class="ware_more">精彩商品&nbsp;逛起来！</a>
             <span>〉</span>
         </li>
     	<li class="ware clear">
@@ -390,22 +520,63 @@ html{ font-size:20px;}
             	<li><a href="javascript:;">更多</a></li>
             </ul>
         </li>
-    	<li class="ware_more">
-        	<a herf="javascript:;">精彩商品&nbsp;逛起来！</a>
+    	<li>
+        	<a herf="javascript:;" class="ware_more">精彩商品&nbsp;逛起来！</a>
             <span>〉</span>
         </li>
     </ul>
-    <div class="download">
+    <div class="download clear">
     	<a href="javascript:;">
         	<i>
-            	<img>
+            	<img src="img/4.png" />
             </i>
-            <span></span>
+            <span><em>IOS</em>客户端</span>
         </a>
-        
+    	<a href="javascript:;">
+        	<i>
+            	<img src="img/4.png" />
+            </i>
+            <span>安卓客户端</span>
+        </a>
+    	<a href="javascript:;" class="last">
+        	<i>
+            	<img src="img/4.png" />
+            </i>
+            <span>意见反馈</span>
+        </a>
+    </div>
+    <div class="loginbar_box clear">
+    	<div class="loginbar fl">
+    		<a href="javascript:;">登录</a>
+    		<a href="javascript:;">注册</a>
+        </div>
+        <div class="loginbar_ranking fr clear">
+        	<a href="javascript:;">TOP</a>
+            <i>▲</i>
+        </div>
+    </div>
+    <div class="footer_box">
+    	<div class="footer_release clear">
+        	<a href="javascript:;">标准版</a>
+            <a href="javascript:;">电脑版</a>
+        </div>
+        <p class="footer_message">C 2013 浙B2-20080224&nbsp;服务中心</p>
+        <div class="footer_download clear">
+        	<a href="javascript:;" class="footer_logo fl">
+            	<img src="img/5.png" />
+            </a>
+            <div class="fl footer_download_txt">
+            	<p>
+                	<strong>先点</strong>
+                	<img src= />
+                </p>
+                <span>再"添加到主屏幕"</span>
+                
+            </div>
+            <span class="sanjiao">▲</span>
+        </div>
         
     </div>
-    
 </body>
 </html>
 
