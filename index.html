@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded',function(){
 			
 		}
 		
-		function fnUp(ev){
+		function fnEnd(ev){
 			document.removeEventListener('touchmove',fnMove,false);
 			document.removeEventListener('touchend',fnEnd,false);
 			alert(bOk);
@@ -210,12 +210,12 @@ document.addEventListener('DOMContentLoaded',function(){
 			}
 			
 			timer = setInterval(tick,2000);
+			
 		}
 		document.addEventListener('touchmove',fnMove,false);
-		document.addEventListener('touchend',fnUp,false);
+		document.addEventListener('touchend',fnEnd,false);
 		ev.preventDefault();
 	},false);
-	
 },false);
 </script>
 </head>
