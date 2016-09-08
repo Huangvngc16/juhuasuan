@@ -164,12 +164,12 @@ document.addEventListener('DOMContentLoaded',function(){
 		clearInterval(timer);
 		var x=0,
 			bOk=null,
-			disX = ev.pageX,
+			disX = ev.targetTouches[0].pageX,
 			oUl_marginL = parseInt(oUl.style.marginLeft);
 		
 		function fnMove(ev){
 			
-			var x = ev.pageX-disX;
+			var x = ev.targetTouches[0].pageX-disX;
 			if(x>200||x<-200){
 				if(x<0){
 					bOk = 1;
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded',function(){
 		function fnEnd(ev){
 			document.removeEventListener('touchmove',fnMove,false);
 			document.removeEventListener('touchend',fnEnd,false);
-			
+			alert(bOk);
 			switch(bOk){
 				case null:
 					oUl.style.marginLeft = -index*oUl_aLi_style_W+'rem';
