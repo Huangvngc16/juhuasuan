@@ -23,7 +23,7 @@ html{ font-size:20px;}
 .head h1 a,.head h1 a img{ width:100%; heigth:100%; display:block;}
 
 .banner_box{ width:16rem; height:7.45rem; overflow:hidden;}
-.banner_box ul{ width:96rem; height:6.675rem;}
+.banner_box ul{ width:96rem; height:6.675rem; transform:translate3d(0,0,0); -webkit-transform:translate3d(0,0,0); -moz-transform:translate3d(0,0,0); -o-transform:translate3d(0,0,0); -ms-transform:translate3d(0,0,0);}
 .banner_box ul li{ width:16rem; height:100%; float:left;} 
 .banner_box ul li a{ width:100%; height:100%; display:block;}
 .banner_box ul li a img{ width:100%; height:100%;}
@@ -105,64 +105,114 @@ html{ font-size:20px;}
 
 </style>
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-	document.documentElement.style.fontSize = document.documentElement.clientWidth*20/320+'px'; 
-	window.onresize = function (){
-		document.documentElement.style.fontSize = document.documentElement.clientWidth*20/320+'px'; 
+function getStyle(obj,sName){
+	if(obj.currentStyle){
+		return oBj.currentStyle[sName];
+	}else{
+		return getComputedStyle(obj,false)[sName];
 	}
+}
+document.addEventListener('DOMContentLoaded',function(){
+	var fontSize = document.documentElement.clientWidth*20/320; 
+	document.documentElement.style.fontSize = fontSize+'px'; 
+	
+	window.onresize = function (){
+		var fontSize = document.documentElement.clientWidth*20/320;  
+		document.documentElement.style.fontSize = fontSize+'px';
+	}
+	
+	
 	var oBan = document.getElementsByClassName("banner_box")[0],
 		oUl = oBan.getElementsByTagName("ul")[0],
 		oOl = oBan.getElementsByTagName("ol")[0],
-		aLi1 = oUl.children,
-		aLi2 = oOl.children,
-		index = 0,
-		timer = null,
-		NewoLi = aLi1[aLi1.length-1].cloneNode(true);
-		aLi1[0].insertBefore(NewoLi);
-		oUl.style.marginLeft = -aLi1[0].offsetWidth+'px';
-	/*function tick(){
-		index++;
-		if(index==aLi1.length){
-			index=0;
-		}
-		oUl.style.marginLeft=-index*aLi1[0].offsetWidth+'px';
+		oUl_aLi = oUl.children,
+		oOl_aLi = oOl.children,
+		index = oUl_aLi.length,
+		timer = null
+		oUl_aLi_style_W = getStyle(oUl_aLi[0],'width');
 		
-	};	
-	timer = setInterval(tick,1000);*/
+	clearInterval(timer);
 	
-	/*oUl.addEventListener('touchstart',function(ev){
+	function(){
+		oUl.innerHTML += oUl.innerHTML;
+		oUl.style.width = parseInt(getStyle(oUl,'width'))/fontSize*2+'rem';
+	}
+	
+	function tick(){
+		index++;
+		if(index==oUl_aLi.length-1){
+			index=oUl_aLi.length/2-1;
+		}
+		oUl.style.WebkitTransform = 'translate3d('+index*oUl_aLi_style_W+'rem,0,0)';
+		oUl.style.MozTransform = 'translate3d('+index*oUl_aLi_style_W+'rem,0,0)';
+		oUl.style.msTransform = 'translate3d('+index*oUl_aLi_style_W+'rem,0,0)';
+		oUl.style.OTransform = 'translate3d('+index*oUl_aLi_style_W+'rem,0,0)';
+		oUl.style.transform = 'translate3d('+index*oUl_aLi_style_W+'rem,0,0)';
+		
+		for(var i=0; i<oOl_aLi.length; i++){
+			oOl_aLi[i].className = '';
+		}
+		if(index==oUl_aLi.length/2-1){
+			oOl_aLi[oOl_aLi.length-1].className = 'on';
+		}else{
+			oOl_aLi[index-oUl_aLi.length/2].className = 'on';
+		}
+	};
+	timer = setInterval(tick,2000);
+	
+	oUl.addEventListener('touchstart',function(ev){
 		clearInterval(timer);
 		var x=0,
-			bOk=0,
-			oTarget = ev.targetTouches[0],
-			disX = oTarget.pageX;
-			
-		alert(1);
-		
-			function fnMove(ev){
-				var oTarget = ev.targetTouches[0];
-				x = oTarget.pageX-disX;
-				if(parseInt(x)>50){
-					bOk = x>0?1:-1;
+			bOk=null,
+			disX = ev.targetTouches[0].pageX,
+			oUl_marginL = parseInt(oUl.style.marginLeft);
+		function fnMove(ev){
+			var x = ev.targetTouches[0].pageX-disX;
+			if(x>200||x<-200){
+				if(x<0){
+					bOk = 1;
+				}else{
+					bOk = 0;
 				}
-				alert(bOk);
-				
 			}
-			function fnUp(ev){
-				
-				
+			oUl.style.marginLeft =oUl_marginL*fontSize+x+'px';
+		}
+		function fnUp(ev){
+			document.removeEventListener('touchmove',fnMove,false);
+			document.removeEventListener('touchend',fnEnd,false);
+			switch(bOk){
+				case null:
+					oUl.style.WebkitTransform = 'translate3d('+-index*oUl_aLi_style_W+'rem,0,0)';
+					oUl.style.MozTransform = 'translate3d('+-index*oUl_aLi_style_W+'rem,0,0)';
+					oUl.style.msTransform = 'translate3d('+-index*oUl_aLi_style_W+'rem,0,0)';
+					oUl.style.OTransform = 'translate3d('+-index*oUl_aLi_style_W+'rem,0,0)';
+					oUl.style.transform = 'translate3d('+-index*oUl_aLi_style_W+'rem,0,0)';
+				break;
+				case 1:
+					tick();
+				break;
+				case 0:
+					index--;
+					if(index==1){
+						index=oUl_aLi.length-1;
+					}
+					oUl.style.WebkitTransform = 'translate3d('+-index*oUl_aLi_style_W+'rem,0,0)';
+					oUl.style.MozTransform = 'translate3d('+-index*oUl_aLi_style_W+'rem,0,0)';
+					oUl.style.msTransform = 'translate3d('+-index*oUl_aLi_style_W+'rem,0,0)';
+					oUl.style.OTransform = 'translate3d('+-index*oUl_aLi_style_W+'rem,0,0)';
+					oUl.style.transform = 'translate3d('+-index*oUl_aLi_style_W+'rem,0,0)';
+					for(var i=0;i<oOl_aLi.length;i++){
+						oOl_aLi[i].className = '';
+					}
+					oOl_aLi[index-1].className = 'on';
+				break;
 			}
-			
-			
+			timer = setInterval(tick,2000);
+		}
 		document.addEventListener('touchmove',fnMove,false);
 		document.addEventListener('touchend',fnUp,false);
+		ev.preventDefault();
 	},false);
-	
-	/*oUl.addEventListener('touchstart',function(ev){
-		timer = setInterval(tick,1000);
-		
-	},false);*/
-
 	
 },false);
 </script>
