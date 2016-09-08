@@ -23,7 +23,7 @@ html{ font-size:20px;}
 .head h1 a,.head h1 a img{ width:100%; heigth:100%; display:block;}
 
 .banner_box{ width:16rem; height:7.45rem; overflow:hidden;}
-.banner_box ul{ width:96rem; height:6.675rem;}
+.banner_box ul{ width:96rem; height:6.675rem; margin-left:-16rem;}
 .banner_box ul li{ width:16rem; height:100%; float:left;} 
 .banner_box ul li a{ width:100%; height:100%; display:block;}
 .banner_box ul li a img{ width:100%; height:100%;}
@@ -105,8 +105,10 @@ html{ font-size:20px;}
 
 </style>
 <script>
-window.onload = window.onresize = function (){
-	document.documentElement.style.fontSize = document.documentElement.clientWidth*20/320+'px'; 
+document.addEventListener('DOMContentLoaded',function(){
+	window.onresize = function (){
+		document.documentElement.style.fontSize = document.documentElement.clientWidth*20/320+'px'; 
+	}
 	var oBan = document.getElementsByClassName("banner_box")[0],
 		oUl = oBan.getElementsByTagName("ul")[0],
 		oOl = oBan.getElementsByTagName("ol")[0],
@@ -115,7 +117,6 @@ window.onload = window.onresize = function (){
 		index = 0,
 		timer = null,
 		NewoLi = aLi1[aLi1.length-1].cloneNode(true);
-		oUl.insertBefore(NewoLi);
 		
 		
 	/*function tick(){
@@ -160,9 +161,9 @@ window.onload = window.onresize = function (){
 		timer = setInterval(tick,1000);
 		
 	},false);*/
+
 	
-	
-};
+},false);
 </script>
 </head>
 
