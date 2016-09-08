@@ -23,7 +23,7 @@ html{ font-size:20px;}
 .head h1 a,.head h1 a img{ width:100%; heigth:100%; display:block;}
 
 .banner_box{ width:16rem; height:7.45rem; overflow:hidden;}
-.banner_box ul{ width:80rem; height:6.675rem;}
+.banner_box ul{ width:96rem; height:6.675rem;}
 .banner_box ul li{ width:16rem; height:100%; float:left;} 
 .banner_box ul li a{ width:100%; height:100%; display:block;}
 .banner_box ul li a img{ width:100%; height:100%;}
@@ -113,7 +113,11 @@ window.onload = window.onresize = function (){
 		aLi1 = oUl.children,
 		aLi2 = oOl.children,
 		index = 0,
-		timer = null;
+		timer = null,
+		NewoLi = aLi1[aLi1.length-1].cloneNode(true);
+		oUl.insertBefore(NewoLi);
+		
+		
 	/*function tick(){
 		index++;
 		if(index==aLi1.length){
@@ -124,7 +128,7 @@ window.onload = window.onresize = function (){
 	};	
 	timer = setInterval(tick,1000);*/
 	
-	oUl.addEventListener('touchstart',function(ev){
+	/*oUl.addEventListener('touchstart',function(ev){
 		clearInterval(timer);
 		var x=0,
 			bOk=0,
