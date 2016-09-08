@@ -160,16 +160,16 @@ document.addEventListener('DOMContentLoaded',function(){
 	};
 	timer = setInterval(tick,2000);
 	
-	oUl.addEventListener('touchstart',function(ev){
+	oUl.addEventListener('mousedown',function(ev){
 		clearInterval(timer);
 		var x=0,
 			bOk=null,
-			disX = ev.targetTouches[0].pageX,
+			disX = ev.pageX,
 			oUl_marginL = parseInt(oUl.style.marginLeft);
 		
 		function fnMove(ev){
 			
-			var x = ev.targetTouches[0].pageX-disX;
+			var x = ev.pageX-disX;
 			if(x>200||x<-200){
 				if(x<0){
 					bOk = 1;
@@ -182,9 +182,9 @@ document.addEventListener('DOMContentLoaded',function(){
 		}
 		
 		function fnEnd(ev){
-			document.removeEventListener('touchmove',fnMove,false);
-			document.removeEventListener('touchend',fnEnd,false);
-			alert(bOk);
+			document.removeEventListener('mousemove',fnMove,false);
+			document.removeEventListener('mouseup',fnEnd,false);
+			
 			switch(bOk){
 				case null:
 					oUl.style.marginLeft = -index*oUl_aLi_style_W+'rem';
@@ -203,8 +203,10 @@ document.addEventListener('DOMContentLoaded',function(){
 					}
 					if(index==oUl_aLi.length/2-1){
 						oOl_aLi[oOl_aLi.length-1].className = 'on';
+					}else if(index>4){
+						oOl_aLi[index-oOl_aLi.length].className = 'on';
 					}else{
-						oOl_aLi[index-oUl_aLi.length/2].className = 'on';
+						oOl_aLi[index].className = 'on';
 					}
 					break;
 			}
@@ -212,8 +214,8 @@ document.addEventListener('DOMContentLoaded',function(){
 			timer = setInterval(tick,2000);
 			
 		}
-		document.addEventListener('touchmove',fnMove,false);
-		document.addEventListener('touchend',fnEnd,false);
+		document.addEventListener('mousemove',fnMove,false);
+		document.addEventListener('mouseup',fnEnd,false);
 		ev.preventDefault();
 	},false);
 },false);
