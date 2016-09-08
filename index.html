@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>聚划算</title>
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
 <style>
 *{ margin:0; padding:0;}
 li{ list-style:none;}
@@ -23,7 +23,7 @@ html{ font-size:20px;}
 .head h1 a,.head h1 a img{ width:100%; heigth:100%; display:block;}
 
 .banner_box{ width:16rem; height:7.45rem; overflow:hidden;}
-.banner_box ul{ width:96rem; height:6.675rem; margin-left:-16rem;}
+.banner_box ul{ width:96rem; height:6.675rem;}
 .banner_box ul li{ width:16rem; height:100%; float:left;} 
 .banner_box ul li a{ width:100%; height:100%; display:block;}
 .banner_box ul li a img{ width:100%; height:100%;}
@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded',function(){
 		index = 0,
 		timer = null,
 		NewoLi = aLi1[aLi1.length-1].cloneNode(true);
-		
-		
+		aLi1[0].insertBefore(NewoLi);
+		oUl.style.marginLeft = -aLi1[0].offsetWidth+'px';
 	/*function tick(){
 		index++;
 		if(index==aLi1.length){
