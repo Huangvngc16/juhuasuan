@@ -133,10 +133,10 @@ document.addEventListener('DOMContentLoaded',function(){
 		
 	clearInterval(timer);
 	
-	function(){
+	(function(){
 		oUl.innerHTML += oUl.innerHTML;
 		oUl.style.width = parseInt(getStyle(oUl,'width'))/fontSize*2+'rem';
-	}
+	})();
 	
 	function tick(){
 		index++;
