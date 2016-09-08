@@ -106,6 +106,7 @@ html{ font-size:20px;}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
+	document.documentElement.style.fontSize = document.documentElement.clientWidth*20/320+'px'; 
 	window.onresize = function (){
 		document.documentElement.style.fontSize = document.documentElement.clientWidth*20/320+'px'; 
 	}
