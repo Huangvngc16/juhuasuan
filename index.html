@@ -166,17 +166,9 @@ document.addEventListener('DOMContentLoaded',function(){
 			bOk=null,
 			disX = ev.targetTouches[0].pageX,
 			oUl_marginL = parseInt(oUl.style.marginLeft);
-			
-			
-		console.log(oUl_marginL);
-		
 		
 		function fnMove(ev){
 			
-			
-		console.log(oUl_marginL);
-		
-		
 			var x = ev.targetTouches[0].pageX-disX;
 			if(x>200||x<-200){
 				if(x<0){
@@ -189,22 +181,21 @@ document.addEventListener('DOMContentLoaded',function(){
 			
 		}
 		
-		
-		
 		function fnUp(ev){
 			document.removeEventListener('touchmove',fnMove,false);
 			document.removeEventListener('touchend',fnEnd,false);
+			alert(bOk);
 			switch(bOk){
 				case null:
-					oUl.style.marginLeft=-index*oUl_aLi_style_W+'rem';
-				break;
+					oUl.style.marginLeft = -index*oUl_aLi_style_W+'rem';
+					break;
 				case 1:
 					tick();
-				break;
+					break;
 				case 0:
 					index--;
 					if(index==1){
-						index=oUl_aLi.length/2+1;
+						index = oUl_aLi.length/2+1;
 					}
 					oUl.style.marginLeft=-index*oUl_aLi_style_W+'rem';
 					for(var i=0;i<oOl_aLi.length;i++){
@@ -215,8 +206,9 @@ document.addEventListener('DOMContentLoaded',function(){
 					}else{
 						oOl_aLi[index-oUl_aLi.length/2].className = 'on';
 					}
-				break;
+					break;
 			}
+			
 			timer = setInterval(tick,2000);
 		}
 		document.addEventListener('touchmove',fnMove,false);
