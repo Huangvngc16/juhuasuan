@@ -166,7 +166,17 @@ document.addEventListener('DOMContentLoaded',function(){
 			bOk=null,
 			disX = ev.targetTouches[0].pageX,
 			oUl_marginL = parseInt(oUl.style.marginLeft);
+			
+			
+		console.log(oUl_marginL);
+		
+		
 		function fnMove(ev){
+			
+			
+		console.log(oUl_marginL);
+		
+		
 			var x = ev.targetTouches[0].pageX-disX;
 			if(x>200||x<-200){
 				if(x<0){
@@ -176,7 +186,11 @@ document.addEventListener('DOMContentLoaded',function(){
 				}
 			}
 			oUl.style.marginLeft =-oUl_marginL*fontSize+x+'px';
+			document.write(oUl.style.marginLeft);
 		}
+		
+		
+		
 		function fnUp(ev){
 			document.removeEventListener('touchmove',fnMove,false);
 			document.removeEventListener('touchend',fnEnd,false);
