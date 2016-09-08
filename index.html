@@ -190,15 +190,17 @@ document.addEventListener('DOMContentLoaded',function(){
 				case 0:
 					index--;
 					if(index==1){
-						index=oUl_aLi.length-1;
+						index=oUl_aLi.length/2+1;
 					}
-					
 					oUl.style.marginLeft=-index*oUl_aLi_style_W+'rem';
-					
 					for(var i=0;i<oOl_aLi.length;i++){
 						oOl_aLi[i].className = '';
 					}
-					oOl_aLi[index-1].className = 'on';
+					if(index==oUl_aLi.length/2-1){
+						oOl_aLi[oOl_aLi.length-1].className = 'on';
+					}else{
+						oOl_aLi[index-oUl_aLi.length/2].className = 'on';
+					}
 				break;
 			}
 			timer = setInterval(tick,2000);
