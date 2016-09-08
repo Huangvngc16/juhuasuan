@@ -152,8 +152,8 @@ document.addEventListener('DOMContentLoaded',function(){
 		for(var i=0; i<oOl_aLi.length; i++){
 			oOl_aLi[i].className = '';
 		}
-		if(index==oUl_aLi.length/2-1){
-			oOl_aLi[oOl_aLi.length-1].className = 'on';
+		if(index<5){
+			oOl_aLi[index].className = 'on';
 		}else{
 			oOl_aLi[index-oUl_aLi.length/2].className = 'on';
 		}
