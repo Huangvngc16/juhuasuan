@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	};
 	timer = setInterval(tick,2000);
 	
-	oUl.addEventListener('mousedown',function(ev){
+	oUl.addEventListener('touchstart',function(ev){
 		clearInterval(timer);
 		var x=0,
 			bOk=null,
@@ -182,8 +182,8 @@ document.addEventListener('DOMContentLoaded',function(){
 		}
 		
 		function fnEnd(ev){
-			document.removeEventListener('mousemove',fnMove,false);
-			document.removeEventListener('mouseup',fnEnd,false);
+			document.removeEventListener('touchmove',fnMove,false);
+			document.removeEventListener('touchend',fnEnd,false);
 			
 			switch(bOk){
 				case null:
@@ -214,8 +214,8 @@ document.addEventListener('DOMContentLoaded',function(){
 			timer = setInterval(tick,2000);
 			
 		}
-		document.addEventListener('mousemove',fnMove,false);
-		document.addEventListener('mouseup',fnEnd,false);
+		document.addEventListener('touchmove',fnMove,false);
+		document.addEventListener('touchend',fnEnd,false);
 		ev.preventDefault();
 	},false);
 },false);
