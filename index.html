@@ -124,21 +124,23 @@ document.addEventListener('DOMContentLoaded',function(){
 	
 	var oBan = document.getElementsByClassName("banner_box")[0],
 		oUl = oBan.getElementsByTagName("ul")[0],
-		oOl = oBan.getElementsByTagName("ol")[0],
-		oUl_aLi = oUl.children,
+		oOl = oBan.getElementsByTagName("ol")[0];
+		
+		
+	oUl.innerHTML += oUl.innerHTML;
+	oUl.style.width = parseInt(getStyle(oUl,'width'))/fontSize*2+'rem';
+	
+	
+	var	oUl_aLi = oUl.children,
 		oOl_aLi = oOl.children,
-		index = oUl_aLi.length,
+		index = oUl_aLi.length/2,
 		timer = null,
-		bOk = null,
 		oUl_aLi_style_W = parseInt(getStyle(oUl_aLi[0],'width'))/fontSize;
-
+		
+		
 	clearInterval(timer);
 	
-	(function(){
-		oUl.innerHTML += oUl.innerHTML;
-		oUl.style.width = parseInt(getStyle(oUl,'width'))/fontSize*2+'rem';
-		oUl.style.marginLeft=-index*oUl_aLi_style_W+'rem';
-	})();
+	oUl.style.marginLeft=-index*oUl_aLi_style_W+'rem';
 	
 	function tick(){
 		index++;
@@ -175,6 +177,7 @@ document.addEventListener('DOMContentLoaded',function(){
 			}
 			oUl.style.marginLeft =oUl_marginL*fontSize+x+'px';
 		}
+		alert(oOl_aLi.length);
 		function fnUp(ev){
 			document.removeEventListener('touchmove',fnMove,false);
 			document.removeEventListener('touchend',fnEnd,false);
